@@ -1,16 +1,56 @@
-using System;
 using System.Linq;
 using System.Collections.Generic;
 
 using Xunit;
 
-using ConwayLife.System;
 using ConwayLife.System.Extensions;
 
 namespace ConwayLife.System.Test
 {
     public class CoordinateTest
     {
+        [Fact(DisplayName = "Apply Orthogonality [3;3] to [0;0] ")]
+        public void Orthonogal_Top_Bottom_()
+        {
+            // Arrange
+            var coordinate = new Coordinate(3,3);
+
+            // Act
+            var orthonogalCoordinate = coordinate.ApplyOrthogonality(2, 2);
+
+            // Assert
+
+            Assert.Equal(new Coordinate(0, 0), orthonogalCoordinate);
+        }
+
+        [Fact(DisplayName = "Apply Orthogonality [-1;-1] to [2;2] ")]
+        public void Orthonogal_Bottom_Top()
+        {
+            // Arrange
+            var coordinate = new Coordinate(-1, -1);
+
+            // Act
+            var orthonogalCoordinate = coordinate.ApplyOrthogonality(2, 2);
+
+            // Assert
+
+            Assert.Equal(new Coordinate(2, 2), orthonogalCoordinate);
+        }
+
+        [Fact(DisplayName = "Apply Orthogonality [-1;3] to [3;0] ")]
+        public void Orthonogal_Bottom_Top_Top_Bottom()
+        {
+            // Arrange
+            var coordinate = new Coordinate(-1, 3);
+
+            // Act
+            var orthonogalCoordinate = coordinate.ApplyOrthogonality(2, 2);
+
+            // Assert
+
+            Assert.Equal(new Coordinate(2, 0), orthonogalCoordinate);
+        }
+
         [Fact(DisplayName="Neighbour coordinates of the [2;2]")]
         public void Neighbour_2x2()
         {
@@ -37,12 +77,12 @@ namespace ConwayLife.System.Test
             */
 
             Assert.Equal(new Coordinate(1, 1), neigbours.Pop());
-            Assert.Equal(new Coordinate(2, 1), neigbours.Pop());
-            Assert.Equal(new Coordinate(3, 1), neigbours.Pop());
             Assert.Equal(new Coordinate(1, 2), neigbours.Pop());
-            Assert.Equal(new Coordinate(3, 2), neigbours.Pop());
             Assert.Equal(new Coordinate(1, 3), neigbours.Pop());
+            Assert.Equal(new Coordinate(2, 1), neigbours.Pop());
             Assert.Equal(new Coordinate(2, 3), neigbours.Pop());
+            Assert.Equal(new Coordinate(3, 1), neigbours.Pop());
+            Assert.Equal(new Coordinate(3, 2), neigbours.Pop());
             Assert.Equal(new Coordinate(3, 3), neigbours.Pop());
         }
 
@@ -74,12 +114,12 @@ namespace ConwayLife.System.Test
             */
 
             Assert.Equal(new Coordinate(3, 3), neigbours.Pop());
-            Assert.Equal(new Coordinate(0, 3), neigbours.Pop());
-            Assert.Equal(new Coordinate(1, 3), neigbours.Pop());
             Assert.Equal(new Coordinate(3, 0), neigbours.Pop());
-            Assert.Equal(new Coordinate(1, 0), neigbours.Pop());
             Assert.Equal(new Coordinate(3, 1), neigbours.Pop());
+            Assert.Equal(new Coordinate(0, 3), neigbours.Pop());
             Assert.Equal(new Coordinate(0, 1), neigbours.Pop());
+            Assert.Equal(new Coordinate(1, 3), neigbours.Pop());
+            Assert.Equal(new Coordinate(1, 0), neigbours.Pop());
             Assert.Equal(new Coordinate(1, 1), neigbours.Pop());
         }
     }
