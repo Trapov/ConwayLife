@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace ConwayLife.System
 {
+    /// <summary>
+    /// X and Y
+    /// </summary>
     public readonly struct Coordinate
     {
         public int Y { get; }
@@ -13,6 +16,19 @@ namespace ConwayLife.System
             Y = y;
         }
 
+        /// <summary>
+        /// Finds all the neighbours
+        ///     <![CDATA[
+        ///     * - Neighbour
+        ///     0 - Coordinate
+        ///     x - __________
+        ///
+        ///     x x x x
+        ///     x * * * 
+        ///     x * 0 *
+        ///     x * * *
+        ///     ]]>
+        /// </summary>
         public IEnumerable<Coordinate> NeighbourCoordinates
         {
             get
@@ -26,11 +42,6 @@ namespace ConwayLife.System
                 yield return new Coordinate(Y+1, X);
                 yield return new Coordinate(Y+1, X+1);
             }
-        }
-
-        internal Coordinate ApplyOrthogonality(int maxY, int maxX) 
-        {
-            return new Coordinate(Y>(maxY) ? 0 : (Y<0) ? maxY : Y, X > (maxX) ? 0 : (X < 0) ? maxX : X);
         }
 
         public override string ToString() => $"Y: {Y} | X: {X}";
