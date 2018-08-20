@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ConwayLife.System
@@ -5,7 +6,7 @@ namespace ConwayLife.System
     /// <summary>
     /// X and Y
     /// </summary>
-    public readonly struct Coordinate
+    public readonly struct Coordinate : IEquatable<Coordinate>
     {
         public int Y { get; }
         public int X { get; }
@@ -45,5 +46,7 @@ namespace ConwayLife.System
         }
 
         public override string ToString() => $"Y: {Y} | X: {X}";
+
+        public bool Equals(Coordinate other) => X == other.X && Y == other.Y;
     }
 }

@@ -27,7 +27,7 @@ namespace ConwayLife.System
 
             return allNeighbhours.Where(
                 x => allNeighbhours.Count(innerCell => innerCell.Equals(x)) == 3 ||
-                (allNeighbhours.Count(innerCell => innerCell.Equals(x)) == 2 && oldGeneration.Contains(x))
+                (allNeighbhours.Count(innerCell => innerCell.Equals(x)) == 2 && oldGeneration.Any(d => d.Equals(x)))
             ).Distinct();
         }
     }

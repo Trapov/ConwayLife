@@ -78,6 +78,38 @@ namespace ConwayLife.System.Test
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 3)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 1)));
+
+            newGeneration = world.Generation(newGeneration);
+
+            /*
+
+                x 0 x
+                x 0 x
+                x 0 x
+
+            */
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(2, 3)));
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(2, 1)));
+
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(3, 2)));
+
+            newGeneration = world.Generation(newGeneration);
+
+            /*
+
+                x x x
+                0 0 0
+                x x x
+
+            */
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(1, 2)));
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(3, 2)));
+
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 3)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 1)));
         }
 
         [Fact(DisplayName = "New generation with a Block")]
