@@ -25,15 +25,15 @@ namespace ConwayLife.App.Console
                     new Coordinate(1, 2),
                     new Coordinate(2, 2),
                     new Coordinate(3, 2)
-                });
+                }).ToList();
 
                 Task renderTask = Task.CompletedTask;
-                while (true)
+                while (!sourceToken.IsCancellationRequested)
                 {
-                    generation = world.Generation(generation);
+                    generation = world.Generation(generation).ToList();
                     renderTask.GetAwaiter().GetResult();
-                    renderTask = Task.Run(() => RenderGrid(4, generation.ToList().AsReadOnly()));
-                    Task.Delay(300).GetAwaiter().GetResult();
+                    renderTask = Task.Run(() => RenderGrid(4, generation.AsReadOnly()));
+                    Task.Delay(700).GetAwaiter().GetResult();
                 }
             }, sourceToken.Token);
 

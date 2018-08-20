@@ -19,11 +19,11 @@ namespace ConwayLife.System
         /// </summary>
         /// <param name="oldGeneration"></param>
         /// <returns></returns>
-        public IEnumerable<Coordinate> Generation(IEnumerable<Coordinate> oldGeneration)
+        public IEnumerable<Coordinate> Generation(IReadOnlyCollection<Coordinate> oldGeneration)
         {
             var allNeighbhours = oldGeneration.SelectMany(cell => cell
                .NeighbourCoordinates
-               .Orthogonal(_size, _size)).ToList();
+               .Orthogonal(_size, _size)).ToList().AsReadOnly();
 
             return allNeighbhours.Where(
                 x => allNeighbhours.Count(innerCell => innerCell.Equals(x)) == 3 ||
