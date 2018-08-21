@@ -1,5 +1,10 @@
-Conway's game of life implementation.
+# Conway's game of life implementation.
 
 
-Console render:
+## Console render:
+
 ![Blinker and Block example](img/BlinkerAndBlock.gif)
+
+## OpenTk render
+
+![Blinker and Block example](img/BlinkerAndBlockOpenTK.gif)
