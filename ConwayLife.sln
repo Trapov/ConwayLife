@@ -13,10 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConwayLife.System.Test", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConwayLife.App.Console", "src\ConwayLife.App.Console\ConwayLife.App.Console.csproj", "{61C50743-152C-4EEA-B130-B82C14AAEFFE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4D3C4C2-5139-4D3B-99A0-84C8BE3B5037}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLife.App.OpenTK", "src\ConwayLife.App.OpenTK\ConwayLife.App.OpenTK.csproj", "{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -62,6 +66,18 @@ Global
 		{61C50743-152C-4EEA-B130-B82C14AAEFFE}.Release|x64.Build.0 = Release|Any CPU
 		{61C50743-152C-4EEA-B130-B82C14AAEFFE}.Release|x86.ActiveCfg = Release|Any CPU
 		{61C50743-152C-4EEA-B130-B82C14AAEFFE}.Release|x86.Build.0 = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|x64.Build.0 = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Debug|x86.Build.0 = Debug|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|x64.ActiveCfg = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|x64.Build.0 = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|x86.ActiveCfg = Release|Any CPU
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,9 +86,13 @@ Global
 		{6A106E0F-7429-402B-86E6-66847E7C0E92} = {1D3702E3-B7BD-4FCF-A617-B1CE7056122B}
 		{47EC4B96-F5C8-42A0-A119-AD712B6E0611} = {766EC04F-181E-4B0F-AF81-D7DF37C53F29}
 		{61C50743-152C-4EEA-B130-B82C14AAEFFE} = {1D3702E3-B7BD-4FCF-A617-B1CE7056122B}
+		{639F9B58-3FD1-49A6-A9D7-CD382DE9A07A} = {1D3702E3-B7BD-4FCF-A617-B1CE7056122B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBE407F4-EAB1-4A01-A806-57F95991A5FF}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
