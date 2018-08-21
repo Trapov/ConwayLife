@@ -18,6 +18,7 @@ namespace ConwayLife.App.Console
 
         public static void Main()
         {
+            Output.CursorVisible = false;
             var sourceToken = new CancellationTokenSource();
             Task.Run(() =>
             {
@@ -49,9 +50,9 @@ namespace ConwayLife.App.Console
                 }
             }, sourceToken.Token);
 
-            RenderQueue.RenderAsync(sourceToken.Token, TimeSpan.FromMilliseconds(360));
+            RenderQueue.RenderAsync(sourceToken.Token, TimeSpan.FromMilliseconds(500));
 
-            Output.ReadLine();
+            Output.ReadKey();
             sourceToken.Cancel();
         }
 
@@ -88,6 +89,8 @@ namespace ConwayLife.App.Console
                 }
                 Output.WriteLine();
             }
+            Output.WriteLine();
+            Output.WriteLine("Press any key to exit ... ", Color.Aquamarine);
         }
     }
 }
