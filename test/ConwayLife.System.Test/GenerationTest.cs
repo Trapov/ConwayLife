@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 
 using Xunit;
@@ -29,7 +30,7 @@ namespace ConwayLife.System.Test
 
             var world = new World(3);
 
-            var newGeneration = world.Generation(seed);
+            var newGeneration = world.Generation(seed).ToList().AsReadOnly();
 
             // Assert
 
@@ -47,7 +48,7 @@ namespace ConwayLife.System.Test
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 3)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 1)));
 
-            newGeneration = world.Generation(newGeneration);
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
 
             /*
 
@@ -63,7 +64,39 @@ namespace ConwayLife.System.Test
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(3, 2)));
 
-            newGeneration = world.Generation(newGeneration);
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
+
+            /*
+
+                x x x
+                0 0 0
+                x x x
+
+            */
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(1, 2)));
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(3, 2)));
+
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 3)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 1)));
+
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
+
+            /*
+
+                x 0 x
+                x 0 x
+                x 0 x
+
+            */
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(2, 3)));
+            Assert.DoesNotContain(newGeneration, x => x.Equals(new Coordinate(2, 1)));
+
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(2, 2)));
+            Assert.Contains(newGeneration, x => x.Equals(new Coordinate(3, 2)));
+
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
 
             /*
 
@@ -104,7 +137,7 @@ namespace ConwayLife.System.Test
 
             var world = new World(3);
 
-            var newGeneration = world.Generation(seed);
+            var newGeneration = world.Generation(seed).ToList().AsReadOnly();
 
             // Assert
 
@@ -121,7 +154,7 @@ namespace ConwayLife.System.Test
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 0)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 1)));
 
-            newGeneration = world.Generation(newGeneration);
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
 
             /*
                 0 0 x
@@ -134,7 +167,7 @@ namespace ConwayLife.System.Test
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 0)));
             Assert.Contains(newGeneration, x => x.Equals(new Coordinate(1, 1)));
 
-            newGeneration = world.Generation(newGeneration);
+            newGeneration = world.Generation(newGeneration).ToList().AsReadOnly();
 
             /*
 
